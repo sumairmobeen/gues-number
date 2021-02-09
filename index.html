@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h1>Result will be 19998</h1>
+    <input type="number" id="num1" max="4"><button onclick="add1()">Add</button>
+    <h2>User Turn</h2>
+    <h3 id="u1"></h3>
+    <h2>Computer Turn</h2>
+    <h3 id="c1"></h3>
+    <input type="number" id="num2" maxlength="4"><button onclick="add2()">Add</button>
+    <h2>User Turn</h2>
+    <h3 id="u2"></h3>
+    <h2>Computer Turn</h2>
+    <h3 id="c2"></h3>
+
+    <button onclick="calculate()">Calculate</button>
+    <h2>Result</h2>
+    <h3 id="res"></h3>
+
+
+    <script>
+        var total1;
+        var total2;
+        function add1() {
+            let num1 = parseInt(document.getElementById('num1').value)
+            let length = parseInt(document.getElementById('num1').value.length)
+            if (length > 4 || length < 4) {
+                alert("Allow only 4 digits")
+            }
+            else {
+                document.getElementById('u1').innerHTML = num1;
+                var calNum1 = 9999 - num1;
+                document.getElementById('c1').innerHTML = calNum1;
+                total1 = calNum1 + num1;
+            }
+        }
+        function add2() {
+            var num2 = parseInt(document.getElementById('num2').value)
+            let len = parseInt(document.getElementById('num2').value.length)
+            if (len > 4 || len < 4) {
+                alert("Allow only 4 digits")
+            }
+            else {
+                document.getElementById('u2').innerHTML = num2;
+                var calNum2 = 9999 - num2;
+                document.getElementById('c2').innerHTML = calNum2;
+                total2 = calNum2 + num2;
+            }
+        }
+        function calculate() {
+            var total = parseInt(total1) + parseInt(total2)
+            console.log(total)
+            document.getElementById('res').innerHTML = total;
+        }
+    </script>
+</body>
+
+</html>
